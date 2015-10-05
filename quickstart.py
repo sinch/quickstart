@@ -23,7 +23,7 @@ The structure of the JSON input should be:
 
 {
   "archive": "<url to Sinch SDK downloadable artifact>",
-  "sample": "<?>", # must be either 'im', 'app-to-app' or 'app-to-phone'
+  "sample": "<?>", # must be either 'im', 'app-to-app', 'app-to-phone' or 'video'
   "credentials": {
     "application_key": "<?>",
     "application_secret": "<?>",
@@ -96,7 +96,8 @@ class Bootstrap:
     def sample_project_name(self):
         samples = {'im': 'SinchIM',
                    'app-to-app': 'SinchCalling',
-                   'app-to-phone': 'SinchPSTN'}
+                   'app-to-phone': 'SinchPSTN',
+                   'video': 'SinchVideo'}
         sample = samples.get(self.sample_name())
         if sample is None:
             raise Exception('Could not determine which sample to prepare')
